@@ -5,10 +5,10 @@ export const connectDB = () => {
     .connect(process.env.MONGO_URI, {
       dbName: "backendapi",
     })
-    .then(() => {
-      console.log("connected to database");
+    .then((c) => {
+      console.log(`Database Connected with ${c.connection.host}`);
     })
     .catch((err) => {
-      console.log(err);
+      console.log("MongoDB connection error:", err);
     });
 };
